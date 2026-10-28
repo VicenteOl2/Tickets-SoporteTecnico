@@ -1,0 +1,16 @@
+.contenedor { max-width: 1000px; margin: 30px auto; padding: 20px; font-family: sans-serif; }
+.grid-tickets { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; margin-top: 20px; }
+.tarjeta-ticket { border: 1px solid #ddd; border-radius: 8px; padding: 18px; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+.encabezado { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 12px; }
+.encabezado h3 { margin: 0; font-size: 1.1rem; color: #1a252f; }
+
+.badge { padding: 4px 10px; border-radius: 12px; font-weight: bold; font-size: 0.8rem; }
+.prioridad-alta { background: #ffebee; color: #c62828; }
+.prioridad-media { background: #fff8e1; color: #f57f17; }
+.prioridad-baja { background: #e8f5e9; color: #2e7d32; }
+
+.estado { display: inline-block; padding: 4px 8px; font-weight: bold; font-size: 0.85rem; border-radius: 4px; }
+.estado-abierto { background: #e3f2fd; color: #1565c0; }
+.estado-en-proceso { background: #fff3e0; color: #ef6c00; }
+.estado-cerrado { background: #eceff1; color: #37474f; }
+.error { padding: 15px; background: #ffebee; color: #c62828; border-radius: 6px; }
