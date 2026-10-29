@@ -13,6 +13,11 @@
   }
 
   @if (!cargando && !error) {
+
+        <div class="encabezado-principal">
+           <a routerLink="/nuevo-ticket" class="btn-nuevo">+ Crear Nuevo Ticket</a>
+        </div>
+
     <div class="grid-tickets">
       @for (ticket of tickets; track ticket.id) {
         <article class="tarjeta-ticket">
@@ -35,5 +40,6 @@
         <p>No hay tickets de soporte registrados.</p>
       }
     </div>
+
   }
 </section>

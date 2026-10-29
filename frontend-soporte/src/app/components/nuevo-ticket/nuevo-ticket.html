@@ -1,1 +1,75 @@
-<p>nuevo-ticket works!</p>
+<section class="contenedor-formulario">
+  <div class="encabezado">
+    <h2>Ingresar Nueva Solicitud de Soporte</h2>
+    <a routerLink="/" class="btn-volver">← Volver al listado</a>
+  </div>
+
+  @if (error) {
+    <div class="alerta-error">
+      {{ error }}
+    </div>
+  }
+
+  <form (ngSubmit)="guardarTicket()">
+    <div class="campo">
+      <label for="asunto">Asunto / Resumen *</label>
+      <input 
+        type="text" 
+        id="asunto" 
+        name="asunto" 
+        [(ngModel)]="ticket.asunto" 
+        placeholder="Ej: Falla en impresora de contabilidad" 
+        required>
+    </div>
+
+    <div class="campo">
+      <label for="solicitante">Nombre del Solicitante *</label>
+      <input 
+        type="text" 
+        id="solicitante" 
+        name="solicitante" 
+        [(ngModel)]="ticket.solicitante" 
+        placeholder="Ej: Juan Pérez" 
+        required>
+    </div>
+
+    <div class="grupo-doble">
+      <div class="campo">
+        <label for="categoria">Categoría</label>
+        <select id="categoria" name="categoria" [(ngModel)]="ticket.categoria">
+          <option value="Soporte Técnico">Soporte Técnico</option>
+          <option value="Redes / Conectividad">Redes / Conectividad</option>
+          <option value="Sistemas / Software">Sistemas / Software</option>
+          <option value="Acceso / Permisos">Acceso / Permisos</option>
+        </select>
+      </div>
+
+      <div class="campo">
+        <label for="prioridad">Prioridad</label>
+        <select id="prioridad" name="prioridad" [(ngModel)]="ticket.prioridad">
+          <option value="Baja">Baja</option>
+          <option value="Media">Media</option>
+          <option value="Alta">Alta</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="campo">
+      <label for="descripcion">Descripción detallada *</label>
+      <textarea 
+        id="descripcion" 
+        name="descripcion" 
+        rows="4" 
+        [(ngModel)]="ticket.descripcion" 
+        placeholder="Describe el problema..." 
+        required></textarea>
+    </div>
+
+    <div class="acciones">
+      <button type="submit" class="btn-guardar" [disabled]="guardando">
+        {{ guardando ? 'Guardando...' : 'Crear Ticket' }}
+      </button>
+      <a routerLink="/" class="btn-cancelar">Cancelar</a>
+    </div>
+  </form>
+</section>

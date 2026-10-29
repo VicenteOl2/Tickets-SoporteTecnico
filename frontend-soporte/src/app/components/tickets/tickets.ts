@@ -2,11 +2,12 @@ import { Component, OnInit,ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Ticket } from '../../models/ticket';
 import { TicketsService } from '../../services/tickets';
+import{ RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-tickets',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,RouterLink],
   templateUrl: './tickets.html',
   styleUrl: './tickets.css'
 })
