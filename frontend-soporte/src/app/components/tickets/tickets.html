@@ -31,6 +31,11 @@
           <p><strong>Categoría:</strong> {{ ticket.categoria }}</p>
           <p><strong>Descripción:</strong> {{ ticket.descripcion }}</p>
           <div class="pie">
+  <span class="estado estado-{{ ticket.estado.toLowerCase().replace(' ', '-') }}">
+  </span>
+  <a [routerLink]="['/editar-ticket', ticket.id]" class="btn-editar">Editar</a>
+</div>
+          <div class="pie">
             <span class="estado estado-{{ ticket.estado.toLowerCase().replace(' ', '-') }}">
               {{ ticket.estado }}
             </span>
@@ -40,6 +45,7 @@
         <p>No hay tickets de soporte registrados.</p>
       }
     </div>
+    
 
   }
 </section>
