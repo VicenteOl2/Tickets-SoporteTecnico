@@ -1,13 +1,13 @@
-import { Component, OnInit,ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Ticket } from '../../models/ticket';
 import { TicketsService } from '../../services/tickets';
-import{ RouterLink } from '@angular/router';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-tickets',
   standalone: true,
-  imports: [CommonModule,RouterLink],
+  imports: [CommonModule, RouterLink],
   templateUrl: './tickets.html',
   styleUrl: './tickets.css'
 })
@@ -16,7 +16,10 @@ export class TicketsComponent implements OnInit {
   cargando = true;
   error = '';
 
-  constructor(private ticketsService: TicketsService,private cdr: ChangeDetectorRef) {}
+  constructor(
+    private ticketsService: TicketsService,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   ngOnInit(): void {
     this.cargarTickets();
@@ -38,5 +41,19 @@ export class TicketsComponent implements OnInit {
         this.cdr.detectChanges();
       }
     });
+  }
+
+  eliminarTicket(id: number): void {
+    if (confirm(`¿Estás seguro de que deseas eliminar el ticket #${id}?`)) {
+      this.ticketsService.eliminarTicket(id).subscribe({
+        next: () => {
+          this.cargarTickets(); // Recarga la lista para refrescar la vista
+        },
+        error: (err) => {
+          console.error(err);
+          alert('No se pudo eliminar el ticket.');
+        }
+      });
+    }
   }
 }

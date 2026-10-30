@@ -1,8 +1,11 @@
 <section class="contenedor">
-  <h2>Sistema de Gestión de Soporte Técnico</h2>
+  <div class="encabezado-principal">
+    <h2>Sistema de Gestión de Soporte Técnico</h2>
+    <a routerLink="/nuevo-ticket" class="btn-nuevo">+ Crear Nuevo Ticket</a>
+  </div>
 
   @if (cargando) {
-    <p>Cargando solicitudes de soporte...</p>
+    <p class="mensaje-carga">Cargando solicitudes de soporte...</p>
   }
 
   @if (error) {
@@ -13,11 +16,6 @@
   }
 
   @if (!cargando && !error) {
-
-        <div class="encabezado-principal">
-           <a routerLink="/nuevo-ticket" class="btn-nuevo">+ Crear Nuevo Ticket</a>
-        </div>
-
     <div class="grid-tickets">
       @for (ticket of tickets; track ticket.id) {
         <article class="tarjeta-ticket">
@@ -27,25 +25,25 @@
               {{ ticket.prioridad }}
             </span>
           </div>
+
           <p><strong>Solicitante:</strong> {{ ticket.solicitante }}</p>
           <p><strong>Categoría:</strong> {{ ticket.categoria }}</p>
           <p><strong>Descripción:</strong> {{ ticket.descripcion }}</p>
-          <div class="pie">
-  <span class="estado estado-{{ ticket.estado.toLowerCase().replace(' ', '-') }}">
-  </span>
-  <a [routerLink]="['/editar-ticket', ticket.id]" class="btn-editar">Editar</a>
-</div>
+
           <div class="pie">
             <span class="estado estado-{{ ticket.estado.toLowerCase().replace(' ', '-') }}">
               {{ ticket.estado }}
             </span>
+            
+            <div class="acciones">
+              <a [routerLink]="['/editar-ticket', ticket.id]" class="btn-editar">Editar</a>
+              <button type="button" (click)="eliminarTicket(ticket.id)" class="btn-eliminar">Eliminar</button>
+            </div>
           </div>
         </article>
       } @empty {
-        <p>No hay tickets de soporte registrados.</p>
+        <p class="sin-registros">No hay tickets de soporte registrados.</p>
       }
     </div>
-    
-
   }
 </section>
