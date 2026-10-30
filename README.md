@@ -16,26 +16,10 @@ Sistema web full-stack enfocado en la gestión, registro y seguimiento interacti
 
 ---
 
-### 4. Estructura general del proyecto
-certamen2-soporte/
-├── api-soporte/           # Servidor Backend (Node.js + Express)
-│   ├── db.js              # Conexión ODBC a SQL Server Express
-│   ├── server.js          # Definición de servidor REST y endpoints
-│   └── package.json
-├── frontend-soporte/      # Cliente Frontend (Angular 22 Standalone)
-│   ├── src/
-│   │   └── app/
-│   │       ├── components/ # Vistas: Listado (tickets), Nuevo (nuevo-ticket), Edición (editar-ticket)
-│   │       ├── models/     # Modelo de datos TypeScript (Ticket, TicketNuevo)
-│   │       ├── services/   # Servicio HTTP (TicketsService)
-│   │       └── app.routes.ts
-│   └── package.json
-├── .gitignore
-└── README.md
 
 ---
 
-### 5. Funcionalidades implementadas
+### 4. Funcionalidades implementadas
 - **Lectura/Consulta (`GET`):** Obtención dinámica del listado completo de tickets almacenados en SQL Server y consulta individual por identificador (`id`).
 - **Creación (`POST`):** Registro de nuevos tickets con validación de campos obligatorios (`asunto`, `solicitante`, `descripción`).
 - **Edición/Actualización (`PUT`):** Modificación del estado del ticket (`Abierto`, `En Proceso`, `Cerrado`), prioridad y datos descriptivos con persistencia directa en la base de datos.
@@ -43,7 +27,7 @@ certamen2-soporte/
 
 ---
 
-### 6. Instrucciones de instalación
+### 5. Instrucciones de instalación
 1. Clonar el repositorio:
    git clone https://github.com/VicenteOl2/Tickets-SoporteTecnico.git
    cd certamen2-soporte
@@ -53,7 +37,7 @@ certamen2-soporte/
 
 ---
 
-### 7. Instrucciones de ejecución
+### 6. Instrucciones de ejecución
 1. Iniciar Backend (`api-soporte`):
    cd api-soporte
    npm install
@@ -68,14 +52,14 @@ certamen2-soporte/
 
 ---
 
-### 8. Pruebas realizadas
+### 7. Pruebas realizadas
 - **Prueba de API REST (Postman / Browser):** Verificación de respuestas JSON y códigos de estado HTTP en `/api/tickets`.
 - **Prueba de Integración End-to-End:** Creación y modificación exitosa de registros desde el cliente Angular con verificación instantánea de persistencia en SQL Server Management Studio (SSMS).
 - **Prueba de Navegación:** Validación de rutas dinámicas entre la vista de listado, formulario de nuevo ticket y formulario de edición.
 
 ---
 
-### 9. Declaración del uso de Inteligencia Artificial (IA)
+### 8. Declaración del uso de Inteligencia Artificial (IA)
 
 En cumplimiento con la normativa académica del certamen, se detalla el uso de herramientas de Inteligencia Artificial (Gemini / Copilot) como asistente de desarrollo:
 
